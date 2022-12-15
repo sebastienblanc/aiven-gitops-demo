@@ -17,6 +17,7 @@ spec:
       labels:
         app: psql-test
     spec:
+      restartPolicy: Never
       containers:
         - image: postgres:11-alpine
           name: postgres
