@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: psql-test
+  name: psql-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: psql-test
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: psql-test
+    spec:
+      containers:
+        - image: postgres:11-alpine
+          name: postgres
+          command: ['psql', '$(DATABASE_URI)', '-c', 'SELECT version();']
+
+          # the pg-connection secret becomes environment variables
+          envFrom:
+          - secretRef:
+              name: pg-connection
