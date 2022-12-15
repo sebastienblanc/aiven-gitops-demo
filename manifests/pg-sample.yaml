@@ -1,7 +1,7 @@
 apiVersion: aiven.io/v1alpha1
 kind: PostgreSQL
 metadata:
-  name: pg-sample-sebi-k8s-operator
+  name: pg-sample-sebi-k8s-live-coding
 spec:
 
   # gets the authentication token from the `aiven-token` secret
